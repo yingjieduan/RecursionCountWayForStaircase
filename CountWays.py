@@ -1,19 +1,22 @@
-calculatedSteps = {0:1}
+class CountWays():
+    calculatedSteps = {0:1}
 
-def countWay(numSteps, stepSizeList = [1,2,3]):
-    stepSizeList.sort()
-    counter = 0
+    def countWay(self, numSteps, stepSizeList = [1,2,3]):
+        stepSizeList.sort()
+        counter = 0
 
-    if numSteps in calculatedSteps:
-        return calculatedSteps[numSteps]
+        if numSteps in self.calculatedSteps:
+            return self.calculatedSteps[numSteps]
 
-    for step in stepSizeList:
-        if numSteps >= step:
-            counter += countWay(numSteps - step, stepSizeList)
-        else:
-            return counter
+        for step in stepSizeList:
+            if numSteps >= step:
+                counter += self.countWay(numSteps - step, stepSizeList)
+            else:
+                return counter
 
-    calculatedSteps[numSteps] = counter
-    return counter
+        self.calculatedSteps[numSteps] = counter
+        return counter
 
-print(countWay(100, stepSizeList= [1,2,3,7,11]))
+if __name__ == "__main__":
+    o = CountWays()
+    print(o.countWay(100, stepSizeList= [1,2,3,7,11]))
