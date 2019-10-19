@@ -12,7 +12,7 @@ class CountWays():
             if numSteps >= step:
                 counter += self.countWay(numSteps - step, stepSizeList)
             else:
-                return counter
+                break
 
         self.calculatedSteps[numSteps] = counter
         return counter
